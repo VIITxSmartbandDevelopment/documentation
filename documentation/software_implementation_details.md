@@ -135,16 +135,51 @@ Device {
         "psw_hash" : str
     },
     "tuning_param" : {
-        "user_weight" : number
+        "user_weight" : number,
+        "delay" : {
+          "jump" : number,
+          "step" :number,
+          "kick" : number
+        },
+        "jump" : {
+          "x" : number,
+          "y" : number,
+          "z" : number
+        },
+        "step" : {
+          "x" : number,
+          "y" : number,
+          "z" : number
+        },
+        "kick" : {
+          "x" : number,
+          "y" : number,
+          "z" : number
+        }
     },
     "monitoring_param" : {
-        "steps" : number,
-        "kicks" : number,
-        "jumps" : number
+        "jump" : number,
+        "step" : number,
+        "kick" : number
     },
     "access" : {
+        "status" : str (values [start, stop]),
+        "upload_delay" : number,
         "command" : str,
         "response" : str
     }
+}
+```
+
+
+## Realtime Database Structure
+```
+```
+
+### Realtiem Database Device Object
+```
+device_id: {
+  upload: int (default=20000),
+  status: str (values [start, stop]),
 }
 ```
