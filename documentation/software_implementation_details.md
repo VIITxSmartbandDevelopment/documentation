@@ -3,7 +3,7 @@
 ## Dependancies
 
 ```
-name: app
+name: VIITxSmartband
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -39,11 +39,20 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  bottom_navy_bar: ^6.0.0
   firebase_core: ^2.8.0
   firebase_auth: ^4.3.0
   firebase_database: ^10.0.16
   cloud_firestore: ^4.4.5
   google_fonts: ^4.0.3
+  google_sign_in: ^5.4.4
+  get: ^4.6.5
+  carousel_slider: ^4.2.1
+  carousel_indicator: ^1.0.6
+  flutter_svg: ^1.1.6
+  circular_chart_flutter: ^0.0.2
+  syncfusion_flutter_core: 20.1.48
+  syncfusion_flutter_charts: 20.1.48
 
 dev_dependencies:
   flutter_test:
@@ -68,8 +77,9 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+     - lib/assets/LandingPageIllustrations/
+     - lib/assets/Icons/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -172,9 +182,61 @@ Device {
 ```
 
 
-## Realtime Database Structure
+## Flutter Project Structure
 ```
+lib
+├── assets
+│   ├── Icons
+│   │   └── google.svg
+│   └── LandingPageIllustrations
+│       ├── undraw_fitness_tracker_3033.svg
+│       ├── undraw_internet_on_the_go_re_vben.svg
+│       └── undraw_personal_training_0dqn.svg
+├── controllers
+│   ├── AuthenticationController.dart
+│   └── DeviceViewController.dart
+├── firebase_options.dart
+├── generated_plugin_registrant.dart
+├── main.dart
+├── models
+│   ├── DeviceModel.dart
+│   ├── UserModel.dart
+│   └── UserStats.dart
+├── services
+│   ├── AuthenticationService.dart
+│   ├── DatabaseService.dart
+│   └── FirebaseImplementations
+│       ├── FirebaseAuthenticationImpl.dart
+│       └── FirebaseDatabaseImpl.dart
+├── utilities
+│   ├── Theme.dart
+│   ├── formatters.dart
+│   ├── helpers.dart
+│   └── size_util.dart
+└── views
+    ├── Components
+    │   ├── BottomSheetDesignLanguage.dart
+    │   ├── ButtonDesignLanguage.dart
+    │   ├── DeviceStatisticalView.dart
+    │   ├── PageHeader.dart
+    │   ├── device_details_view.dart
+    │   └── information_box.dart
+    ├── DeviceConfigurationFlow
+    │   └── FlowStart.dart
+    ├── HomePage.dart
+    ├── HomePageSubViews
+    │   ├── Dashboard.dart
+    │   ├── Devices.dart
+    │   └── Profile.dart
+    ├── LandingPage.dart
+    ├── ProfileUpdatation
+    │   ├── ShowUserProfile.dart
+    │   └── add_device.dart
+    └── deviceConfigurationPage.dart
+
 ```
+
+The project structure is created according to GetX & MVC requirements, all the views, components are located in <strong>views</strong> folder, while the controllers are present in <strong>controllers</strong>, the theme of project is defined globally for both dark and light mode.
 
 ### Realtiem Database Device Object
 ```
